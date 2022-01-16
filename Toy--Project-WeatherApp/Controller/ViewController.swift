@@ -11,14 +11,16 @@ import QuartzCore
 
 class ViewController: UIViewController {
     
-
     
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dailyData = WeatherStruct()
+    let headers: [String] = ["🗓 10일간의 일기예보"]
     
-  
+    var dailyData: [Daily] = []
+    
+    var weatherStruct = WeatherStruct()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,11 +28,15 @@ class ViewController: UIViewController {
         APIManager.shared.daily { [self] result in
             switch result {
             case .success(let data):
-                dailyData.day = data.daily[0].weekday()
-                print(dailyData)
+                
+                
                 DispatchQueue.main.async {
+                    dailyData = data.daily
+                    dailyData.removeLast()
                     tableView.reloadData()
                 }
+                
+                
             case .failure(let error):
                 print(error)
             }
@@ -39,6 +45,10 @@ class ViewController: UIViewController {
         
         tableView.layer.borderColor = UIColor.clear.cgColor
         tableView.register(UINib(nibName: "TableViewCell" , bundle: nil), forCellReuseIdentifier: "TableViewCell")
+        tableView.layer.shadowColor = UIColor.black.cgColor
+        tableView.layer.shadowOpacity = 0.5
+        tableView.layer.shadowRadius = 10
+        
         
         
         tableView.delegate = self
@@ -69,13 +79,20 @@ class ViewController: UIViewController {
 //셀 투명도 접근하려고 만든 메서드
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = .systemBlue.withAlphaComponent(0.8)
+        cell.backgroundColor = #colorLiteral(red: 0.4620226622, green: 0.8382837176, blue: 1, alpha: 1).withAlphaComponent(0.4)
     }
+    
+   
+    
+    
+    
+    
+    
 }
     
     
     
-    
+
     
 
     
@@ -94,16 +111,47 @@ extension ViewController: UITableViewDelegate {
 //MARK: -  TableViewDataSource
     extension ViewController: UITableViewDataSource {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 10
+            return dailyData.count
         }
         
+        
+        
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-            cell.dayLabel.text = dailyData.dayName
-            print(dailyData.dayName)
-            return cell
             
+            
+            
+            
+            
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+            let dailyData = dailyData[indexPath.row]
+            cell.imageLabel.tintColor = .white
+            cell.tempLabel.textColor = .white
+            cell.dayLabel.textColor = .white
+            weatherStruct.day = dailyData.weekday()
+            weatherStruct.min = dailyData.temp.min
+            weatherStruct.max = dailyData.temp.max
+            weatherStruct.id = dailyData.weather[0].id
+            cell.dayLabel.text = weatherStruct.dayName
+            cell.tempLabel.text = "\(Int(weatherStruct.min)) | \(Int(weatherStruct.max))"
+            cell.imageLabel.image = UIImage(systemName: weatherStruct.conditionName)
+            
+            
+            
+            
+            
+            return cell
+           
         }
+        
+        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            return 50
+        }
+        
+        func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+            return "🗓   7일간의 일기예보"
+        }
+
         
         
     }

@@ -10,8 +10,8 @@ import Foundation
 struct WeatherStruct{
 
     var day: Int = 0
-    var min: Int = 0
-    var max: Int = 0
+    var min: Double = 0
+    var max: Double = 0
     var id: Int = 0
     
 var conditionName: String {

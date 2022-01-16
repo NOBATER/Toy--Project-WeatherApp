@@ -17,7 +17,11 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var imageLabel: UIImageView!
     @IBOutlet weak var dayLabel: UILabel!
     
-    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
