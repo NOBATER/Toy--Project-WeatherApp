@@ -18,7 +18,7 @@ struct Current: Codable {
 }
 
 struct Daily: Codable {
-    var dt: Date
+    var dt: TimeInterval
     var sunset: Date
     var temp: Temp
     var weather: [Weather]
@@ -28,7 +28,7 @@ struct Daily: Codable {
     ///     1 = 일요일, 2 = 월요일, 3 = 화요일....
     func weekday() -> Int {
         let calendar = Calendar.current
-        let component = calendar.component(.weekday, from: dt)
+        let component = calendar.component(.weekday, from: Date(timeIntervalSince1970: dt))
         return component
     }
 }
@@ -36,12 +36,6 @@ struct Daily: Codable {
 struct Temp: Codable {
     var min: Double
     var max: Double
-    var celsiusTempMin: Int {
-        return Int(UnitTemperature.celsius.converter.value(fromBaseUnitValue: self.min))
-    }
-    var celsiusTempMax: Int {
-        return Int(UnitTemperature.celsius.converter.value(fromBaseUnitValue: self.max))
-    }
 }
 
 struct Weather: Codable {
@@ -62,16 +56,6 @@ struct CityTemp: Codable {
     var temp: Double
     var tempMin: Double
     var tempMax: Double
-    
-    var cityCurrentTemp: Int {
-        return Int(UnitTemperature.celsius.converter.value(fromBaseUnitValue: self.temp))
-    }
-    var cityTempMin: Int {
-        return Int(UnitTemperature.celsius.converter.value(fromBaseUnitValue: self.tempMin))
-    }
-    var cityTempMax: Int {
-        return Int(UnitTemperature.celsius.converter.value(fromBaseUnitValue: self.tempMax))
-    }
     
     enum CodingKeys: String, CodingKey {
         case temp
