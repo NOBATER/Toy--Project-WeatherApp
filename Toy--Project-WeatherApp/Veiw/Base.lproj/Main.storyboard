@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="daniel-j-schwarz-a4M-Vegh7Y4-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="dXu-WY-BBx">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joel-henry-zc5_p_31U5g-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="dXu-WY-BBx">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -66,23 +66,39 @@
                                     <segue destination="iG6-Gh-JXE" kind="show" id="wrz-vm-HWt"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tTL-Ak-pE1">
-                                <rect key="frame" x="0.0" y="308" width="428" height="618"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tTL-Ak-pE1">
+                                <rect key="frame" x="0.0" y="320.33333333333331" width="428" height="605.66666666666674"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" id="bST-CZ-FtX">
+                                        <rect key="frame" x="20" y="49" width="388" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bST-CZ-FtX" id="ggu-t4-ylz" customClass="TableViewCell" customModule="Toy__Project_WeatherApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NSI-UH-z7b"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="tTL-Ak-pE1" firstAttribute="top" secondItem="1fD-on-pUy" secondAttribute="bottom" constant="20" id="HCU-13-rM0"/>
+                            <constraint firstItem="tTL-Ak-pE1" firstAttribute="leading" secondItem="NSI-UH-z7b" secondAttribute="leading" id="HWZ-Ps-XCV"/>
+                            <constraint firstAttribute="bottom" secondItem="tTL-Ak-pE1" secondAttribute="bottom" id="ULn-mu-hpk"/>
                             <constraint firstItem="NSI-UH-z7b" firstAttribute="trailing" secondItem="Gkr-fU-uqL" secondAttribute="trailing" constant="20" id="V8b-QA-8fS"/>
                             <constraint firstItem="1fD-on-pUy" firstAttribute="top" secondItem="NSI-UH-z7b" secondAttribute="top" constant="30" id="Wtg-Lg-R8w"/>
                             <constraint firstItem="1fD-on-pUy" firstAttribute="centerX" secondItem="csX-SE-IPr" secondAttribute="centerX" id="dwZ-rb-Nje"/>
                             <constraint firstItem="Gkr-fU-uqL" firstAttribute="top" secondItem="NSI-UH-z7b" secondAttribute="top" id="jrm-Hj-xOe"/>
+                            <constraint firstItem="tTL-Ak-pE1" firstAttribute="trailing" secondItem="NSI-UH-z7b" secondAttribute="trailing" id="tN7-W6-7ml"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="tTL-Ak-pE1" id="vLl-qs-Vho"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BFY-Qs-IMl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,7 +124,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="daniel-j-schwarz-a4M-Vegh7Y4-unsplash" width="414" height="896"/>
+        <image name="joel-henry-zc5_p_31U5g-unsplash" width="207" height="448"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

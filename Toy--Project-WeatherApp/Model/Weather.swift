@@ -78,4 +78,8 @@ struct CityTemp: Codable {
         case tempMin = "temp_min"
         case tempMax = "temp_max"
     }
+    
+  
+    
+        
 }
