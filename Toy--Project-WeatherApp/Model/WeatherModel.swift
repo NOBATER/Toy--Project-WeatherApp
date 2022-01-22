@@ -36,6 +36,8 @@ var conditionName: String {
 }
 
     
+    
+    
     var dayName: String {
         switch day {
         case 1: return "일요일"

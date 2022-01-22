@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "daniel-j-schwarz-a4M-Vegh7Y4-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "sun.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },

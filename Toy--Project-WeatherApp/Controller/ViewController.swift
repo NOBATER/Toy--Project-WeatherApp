@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     
     
+    @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
     let headers: [String] = ["🗓 10일간의 일기예보"]
@@ -57,18 +58,12 @@ class ViewController: UIViewController {
         
         
         
-        
+        weatherImage.image = UIImage(named: "cloud")
+
     }
 
 
 
-    
-    
-    
-    
-    
-
-    
 
     
 }
@@ -91,22 +86,6 @@ extension ViewController: UITableViewDelegate {
 }
     
     
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-
-
 
 //MARK: -  TableViewDataSource
     extension ViewController: UITableViewDataSource {
