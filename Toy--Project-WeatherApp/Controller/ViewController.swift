@@ -74,13 +74,36 @@ class ViewController: UIViewController {
 //셀 투명도 접근하려고 만든 메서드
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = .systemBlue.withAlphaComponent(0.4)
+        cell.backgroundColor = .systemGray.withAlphaComponent(0.2)
+        
     }
     
    
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+            
+            let label = UILabel()
+            label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
+            label.text = " 🗓   7일간의 일기예보"
+        
+            label.font = .systemFont(ofSize: 16)
+            label.textColor = .white
+            
+            headerView.addSubview(label)
+            
+ 
+        
+            return headerView
+        }
     
+
+    
+  
     
     
 }
@@ -120,21 +143,15 @@ extension ViewController: UITableViewDelegate {
             
             
             return cell
-           
+            
         }
         
-        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return 50
-        }
-        
-        func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-            return "🗓   7일간의 일기예보"
-        }
-
+ 
         
         
-        
-
     }
+
+
+
 
 
