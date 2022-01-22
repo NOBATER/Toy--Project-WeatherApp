@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     
     
+    @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
     let headers: [String] = ["🗓 10일간의 일기예보"]
@@ -57,18 +58,12 @@ class ViewController: UIViewController {
         
         
         
-        
+        weatherImage.image = UIImage(named: "cloud")
+
     }
 
 
 
-    
-    
-    
-    
-    
-
-    
 
     
 }
@@ -79,7 +74,7 @@ class ViewController: UIViewController {
 //셀 투명도 접근하려고 만든 메서드
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = #colorLiteral(red: 0.4620226622, green: 0.8382837176, blue: 1, alpha: 1).withAlphaComponent(0.4)
+        cell.backgroundColor = .systemBlue.withAlphaComponent(0.4)
     }
     
    
@@ -91,22 +86,6 @@ extension ViewController: UITableViewDelegate {
 }
     
     
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-
-
 
 //MARK: -  TableViewDataSource
     extension ViewController: UITableViewDataSource {

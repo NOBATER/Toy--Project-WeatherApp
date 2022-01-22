@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="joel-henry-zc5_p_31U5g-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="dXu-WY-BBx">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="dXu-WY-BBx">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -99,6 +99,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="tTL-Ak-pE1" id="vLl-qs-Vho"/>
+                        <outlet property="weatherImage" destination="dXu-WY-BBx" id="lSJ-tU-8Af"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BFY-Qs-IMl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -125,8 +126,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="joel-henry-zc5_p_31U5g-unsplash" width="207" height="448"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="sun" width="207" height="448"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
