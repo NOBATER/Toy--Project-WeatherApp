@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
-    let headers: [String] = ["🗓 10일간의 일기예보"]
+    
     
     var dailyData: [Daily] = []
     
