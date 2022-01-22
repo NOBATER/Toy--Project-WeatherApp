@@ -16,7 +16,7 @@ final class APIManager {
     
     struct Constants {
         static let baseUrl = "https://api.openweathermap.org/data/2.5/"
-        static let apiKey = ""
+        static let apiKey = "502d2da8a18056c5856e6a0752cd94a7"
         static let baseLocation = (37.555985397204545, 126.97129157812294)
     }
     
@@ -84,9 +84,10 @@ final class APIManager {
         }
         
         urlQueryItem.append(.init(name: "appid", value: Constants.apiKey))
+        urlQueryItem.append(.init(name: "units", value: "metric"))
         
         urlString += urlQueryItem.map { "\($0.name)=\($0.value ?? "")" }.joined(separator: "&")
-        
+        print(urlString)
         return URL(string: urlString)
     }
     
